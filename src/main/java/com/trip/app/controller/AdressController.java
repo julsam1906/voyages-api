@@ -7,14 +7,22 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/voyages/adresse")
+@RequestMapping("/voyages/adress")
 public class AdressController {
 
     @Autowired
     private AdressService adressService;
 
-    @PostMapping(value = "/create")
+    @GetMapping(value = "")
+    @ResponseBody
+    public ResponseEntity<List<Adress>> getAdresses(){
+        return new ResponseEntity<>(adressService.getAdress(), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<String> createAdress(@RequestBody Adress adress){
         adressService.createAdress(adress);
@@ -23,7 +31,7 @@ public class AdressController {
 
 
 
-    @DeleteMapping(value = "/delete")
+    @DeleteMapping(value = "")
     @ResponseBody
     public ResponseEntity<String> deleteAdress(@RequestParam Integer id){
         adressService.deleteAdress(id);

@@ -5,6 +5,8 @@ import com.trip.app.entity.Adress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AdressServiceImpl implements AdressService {
 
@@ -14,6 +16,11 @@ public class AdressServiceImpl implements AdressService {
     @Override
     public void createAdress(Adress adress) {
        adressDao.save(adress);
+    }
+
+    @Override
+    public List<Adress> getAdress() {
+        return adressDao.findAll();
     }
 
     @Override
