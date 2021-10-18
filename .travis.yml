@@ -1,0 +1,16 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build -t julsam1906/trip-app .
+  - docker images julsam1906/trip-app
+
+before_deploy:
+  - docker login -u ${USER_DOCKER}  -p ${USER_PWD_DOCKER}
+
+deploy:
+  provider: script
+  script: docker push julsam1906/trip-app
+  on:
+    branch: master
