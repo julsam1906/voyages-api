@@ -1,6 +1,6 @@
 FROM openjdk:11
 
-ADD ./target/app-0.0.1-SNAPSHOT.jar app-0.0.1-SNAPSHOT.jar
+ADD target/blog-api-docker.jar blog-api-docker.jar
 
 ENTRYPOINT ["java", "-jar","blog-api-docker.jar"]
 
