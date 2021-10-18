@@ -1,13 +1,4 @@
-# syntax=docker/dockerfile:1
-FROM openjdk:16-alpine3.13
-
-WORKDIR /app
-
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-
-RUN ./mvnw dependency:go-offline
-
-COPY src ./src
-
-CMD ["./mvnw", "spring-boot:run"]
+FROM openjdk:11
+ADD target/blog-api-docker.jar blog-api-docker.jar
+ENTRYPOINT ["java", "-jar","blog-api-docker.jar"]
+EXPOSE 8080
