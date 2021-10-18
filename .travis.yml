@@ -3,14 +3,14 @@ services:
   - docker
 
 script:
-  - docker build -t julsam1906/trip-app .
-  - docker images julsam1906/trip-app
+  - docker build -t blog-api-docker.jar .
+  - docker images blog-api-docker
 
 before_deploy:
   - docker login -u ${USER_DOCKER}  -p ${USER_PWD_DOCKER}
 
 deploy:
   provider: script
-  script: docker push julsam1906/trip-app
+  script: docker push blog-api-docker
   on:
     branch: master
