@@ -10,28 +10,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/voyages/adress")
+@RequestMapping("/trip/adress")
 public class AdressController {
 
     @Autowired
     private AdressService adressService;
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Adress>> getAdresses(){
         return new ResponseEntity<>(adressService.getAdress(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<String> createAdress(@RequestBody Adress adress){
         adressService.createAdress(adress);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-
-
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<String> deleteAdress(@RequestParam Integer id){
         adressService.deleteAdress(id);
