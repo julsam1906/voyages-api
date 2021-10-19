@@ -73,7 +73,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>blog-api-docker</finalName>
+        <finalName>trip-api-docker</finalName>
     </build>
 
 </project>

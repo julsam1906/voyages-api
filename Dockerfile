@@ -1,7 +1,7 @@
-FROM openjdk:11
+FROM adoptopenjdk:11-jre-hotspot
 
-COPY target/blog-api-docker.jar blog-api-docker.jar
+ARG JAR_FILE=target/*.jar
 
-ENTRYPOINT ["java", "-jar","blog-api-docker.jar"]
+COPY ${JAR_FILE} trip-api-docker.jar
 
-EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/trip-api-docker.jar"]
