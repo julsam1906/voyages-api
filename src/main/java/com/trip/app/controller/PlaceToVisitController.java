@@ -23,7 +23,7 @@ public class PlaceToVisitController {
         return new ResponseEntity<>(places, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/{name}")
     @ResponseBody
     public ResponseEntity<List<PlaceToVisit>> getPlacesByName(@PathVariable String name){
         List<PlaceToVisit> places = placeToVisitService.getPlacesByName(name);

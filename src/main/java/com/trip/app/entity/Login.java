@@ -1,9 +1,6 @@
 package com.trip.app.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +16,9 @@ public class Login {
 
     @Id
     @GeneratedValue
-    private String id;
+    private Integer id;
+    @Column(name = "GENRE")
+    private String genre;
     @Column(name = "NOM")
     private String nom;
     @Column(name = "PRENOM")

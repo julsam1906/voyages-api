@@ -1,5 +1,6 @@
 package com.trip.app.controller;
 
+import com.trip.app.dto.LoginDTO;
 import com.trip.app.dto.UserInfoDTO;
 import com.trip.app.entity.Login;
 import com.trip.app.service.login.LoginService;
@@ -25,9 +26,15 @@ public class LoginController {
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity<String> createUser(@RequestParam Login login){
-        loginService.createUser(login);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<String> createUser(@RequestBody LoginDTO login){
+        int result = loginService.createUser(login);
+        ResponseEntity<String> reponse;
+        if(result == 0){
+            reponse = new ResponseEntity<>(HttpStatus.CREATED);
+        } else {
+            reponse = new ResponseEntity<>(HttpStatus.PRECONDITION_FAILED);
+        }
+        return reponse;
     }
 
     @DeleteMapping

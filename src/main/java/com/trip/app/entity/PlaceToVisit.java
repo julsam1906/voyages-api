@@ -25,6 +25,8 @@ public class PlaceToVisit {
     private String details;
     @Column
     private String comments;
+    @Column
+    private String image;
 
 
 }
